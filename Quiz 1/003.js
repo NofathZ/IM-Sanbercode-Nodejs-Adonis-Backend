@@ -1,10 +1,11 @@
 function tandaA(strings) {
     strings = strings.toLowerCase();
-    for (let i = 0; i < strings.length; i++) {
-        if (strings[i] == "a") {
-            strings = strings.replace("a", "x");
+    strings = [...strings];
+    strings.forEach((string, index) => {
+        if (string == "a") {
+            strings[index] = "x";
         }
-    }
-    return(strings);
+    })
+    return(strings.reduce((arr, curr) => arr + curr));
 }
 console.log(tandaA("abrakadabra"))
