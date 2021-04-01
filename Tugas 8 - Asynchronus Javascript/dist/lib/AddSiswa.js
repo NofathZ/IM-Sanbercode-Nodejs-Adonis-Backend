@@ -45,8 +45,8 @@ var AddSiswa = /*#__PURE__*/function () {
                   }
                 });
 
-                if (fs.existsSync(__dirname + '/../data.json')) {
-                  fs.unlinkSync(__dirname + '/../data.json');
+                if (fs.existsSync(__dirname + '/../../data.json')) {
+                  fs.unlinkSync(__dirname + '/../../data.json');
                 }
 
                 _context.next = 7;
@@ -75,12 +75,12 @@ var AddSiswa = /*#__PURE__*/function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (!fs.existsSync(__dirname + '/../data.json')) {
+                if (!fs.existsSync(__dirname + '/../../data.json')) {
                   fs.promises.writeFile('data.json', JSON.stringify([]));
                 }
 
                 _context2.next = 3;
-                return fs.promises.readFile(__dirname + '/../data.json', 'utf8');
+                return fs.promises.readFile(__dirname + '/../../data.json', 'utf8');
 
               case 3:
                 dataJSON = _context2.sent;

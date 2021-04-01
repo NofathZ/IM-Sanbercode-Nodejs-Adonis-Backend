@@ -41,8 +41,8 @@ var Register = /*#__PURE__*/function () {
                 };
                 data.push(objectUser);
 
-                if (fs.existsSync(__dirname + '/../data.json')) {
-                  fs.unlinkSync(__dirname + '/../data.json');
+                if (fs.existsSync(__dirname + '/../../data.json')) {
+                  fs.unlinkSync(__dirname + '/../../data.json');
                 }
 
                 _context.next = 8;
@@ -76,7 +76,7 @@ var Register = /*#__PURE__*/function () {
                 }
 
                 _context2.next = 3;
-                return fs.promises.readFile(__dirname + '/../data.json', 'utf8');
+                return fs.promises.readFile(__dirname + '/../../data.json', 'utf8');
 
               case 3:
                 dataJSON = _context2.sent;

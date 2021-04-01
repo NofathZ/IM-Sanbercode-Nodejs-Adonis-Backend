@@ -14,8 +14,8 @@ class Register {
             isLogin: false
         }
         data.push(objectUser)
-        if (fs.existsSync(__dirname + '/../data.json')) {
-            fs.unlinkSync(__dirname + '/../data.json')
+        if (fs.existsSync(__dirname + '/../../data.json')) {
+            fs.unlinkSync(__dirname + '/../../data.json')
         }
         await fs.promises.writeFile('data.json', JSON.stringify(data));
     }
@@ -24,7 +24,7 @@ class Register {
         if (!fs.existsSync(__dirname + '/../data.json')) {
             fs.promises.writeFile('data.json', JSON.stringify([]));
         }
-        let dataJSON = await fs.promises.readFile(__dirname + '/../data.json', 'utf8')
+        let dataJSON = await fs.promises.readFile(__dirname + '/../../data.json', 'utf8')
         let data = JSON.parse(dataJSON)
         return data;
     }

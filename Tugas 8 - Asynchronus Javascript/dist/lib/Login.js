@@ -40,8 +40,8 @@ var Login = /*#__PURE__*/function () {
                   }
                 });
 
-                if (fs.existsSync(__dirname + '/../data.json')) {
-                  fs.unlinkSync(__dirname + '/../data.json');
+                if (fs.existsSync(__dirname + '/../../data.json')) {
+                  fs.unlinkSync(__dirname + '/../../data.json');
                 }
 
                 _context.next = 8;
@@ -71,7 +71,7 @@ var Login = /*#__PURE__*/function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return fs.promises.readFile(__dirname + '/../data.json', 'utf8');
+                return fs.promises.readFile(__dirname + '/../../data.json', 'utf8');
 
               case 2:
                 dataJSON = _context2.sent;
