@@ -1,4 +1,6 @@
 const fs = require('fs');
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 
 class Login {
         constructor(userData) {
