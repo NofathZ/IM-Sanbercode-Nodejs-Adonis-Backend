@@ -19,11 +19,25 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-// Route.get('/venue', 'VenuesController');
-Route.post('/venue', 'VenuesController.addVenue');
-Route.post('/booking', "VenuesController.bookingVenue");
+Route.group(() => {
+  Route.get('/', 'VenuesController.index');
+  Route.post('/', 'VenuesController.store');
+  Route.get('/:id', 'VenuesController.show');
+  Route.put('/:id', 'VenuesController.update');
+  Route.delete('/:id', 'VenuesController.destroy');
+}).prefix('/venue')
+
+Route.resource('field', 'FieldsController').only(['index', 'store', 'show', 'update', 'destroy'])
+
+Route.get('health', async ({ response }) => {
+  const report = await HealthCheck.getReport()
+  return report.healthy
+    ? response.ok(report)
+    : response.badRequest(report)
+})
