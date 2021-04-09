@@ -7,7 +7,7 @@ export default class VenuesController {
             name: schema.string(),
             address: schema.string(),
             phone: schema.string({}, [
-                rules.mobile({ locales: ['en-IN'] })
+                rules.mobile({ locales: ['id-ID'] })
             ])
         })
         let validatedVenue = await request.validate({
