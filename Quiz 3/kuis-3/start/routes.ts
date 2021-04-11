@@ -25,6 +25,22 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
+Route.group(() => {
+  Route.get('/', 'GenresController.index');
+  Route.post('/', 'GenresController.store');
+  Route.get('/:id', 'GenresController.show');
+  Route.put('/:id', 'GenresController.update');
+  Route.delete('/:id', 'GenresController.destroy');
+}).prefix('/genres')
+
+Route.group(() => {
+  Route.get('/', 'MoviesController.index');
+  Route.post('/', 'MoviesController.store');
+  Route.get('/:id', 'MoviesController.show');
+  Route.put('/:id', 'MoviesController.update');
+  Route.delete('/:id', 'MoviesController.destroy');
+}).prefix('/movies')
+
 Route.get('health', async ({ response }) => {
   const report = await HealthCheck.getReport()
   

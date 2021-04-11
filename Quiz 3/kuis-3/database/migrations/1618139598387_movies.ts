@@ -8,7 +8,8 @@ export default class Movies extends BaseSchema {
       table.increments('id')
       table.string('title')
       table.string('resume')
-      table.dateTime('release_date')
+      table.string('release_date')
+      table.integer('genre_id').unsigned().references('id').inTable('genres')
       table.timestamps(true)
     })
   }
